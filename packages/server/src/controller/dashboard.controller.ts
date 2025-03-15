@@ -7,6 +7,7 @@ import {
   COOKIE_DOMAIN,
   DISABLE_LOGIN_WITH_APPLE,
   DISABLE_LOGIN_WITH_GOOGLE,
+  DISABLE_LOGIN_WITH_EMAIL,
   GEETEST_CAPTCHA_ID,
   GOOGLE_RECAPTCHA_KEY,
   STRIPE_PUBLISHABLE_KEY,
@@ -28,6 +29,7 @@ export class DashboardController {
         appDisableRegistration: APP_DISABLE_REGISTRATION,
         disableLoginWithApple: DISABLE_LOGIN_WITH_APPLE,
         disableLoginWithGoogle: DISABLE_LOGIN_WITH_GOOGLE,
+        disableLoginWithEmail: DISABLE_LOGIN_WITH_EMAIL,
         verifyUserEmail: VERIFY_USER_EMAIL
       }
     })
