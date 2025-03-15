@@ -100,6 +100,9 @@ export const GOOGLE_LOGIN_CLIENT_SECRET: string = process.env.GOOGLE_LOGIN_CLIEN
 export const DISABLE_LOGIN_WITH_GOOGLE =
   helper.isEmpty(GOOGLE_LOGIN_CLIENT_ID) || helper.isEmpty(GOOGLE_LOGIN_CLIENT_SECRET)
 
+// Disable login with email, force to use social login
+export const DISABLE_LOGIN_WITH_EMAIL = helper.isTrue(process.env.DISABLE_LOGIN_WITH_EMAIL)
+
 // Stripe
 export const STRIPE_VERSION: string = process.env.STRIPE_VERSION
 export const STRIPE_PUBLISHABLE_KEY: string = process.env.STRIPE_PUBLISHABLE_KEY
