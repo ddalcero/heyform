@@ -6,6 +6,7 @@ import { locales } from '@/pages/form/views/FormComponents'
 
 import en from './en'
 import es from './es'
+import it from './it'
 import pl from './pl'
 import ptBr from './ptBr'
 import tr from './tr'
@@ -62,6 +63,12 @@ const resources = {
     translation: {
       ...cs,
       ...locales.cs.translation
+    }
+  },
+  it: {
+    translation: {
+      ...it,
+      ...locales.it.translation
     }
   },
 }

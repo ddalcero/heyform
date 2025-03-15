@@ -34,7 +34,7 @@
     "@typescript-eslint/no-unused-expressions": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "import/no-unresolved": "error",
+    "import/no-unresolved": ["error", { "ignore": ["^@/"] }],
     "prettier/prettier": "error"
   },
   "settings": {
@@ -44,12 +44,21 @@
       },
       "node": {
         "extensions": [
-          ".ts"
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx"
         ],
         "moduleDirectory": [
           "node_modules",
           "."
         ]
+      },
+      "alias": {
+        "map": [
+          ["@", "./src"]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
       }
     }
   }

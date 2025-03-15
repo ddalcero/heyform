@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "references": [
+    { "path": "./packages/webapp" },
+    { "path": "./packages/embed" },
+    { "path": "./packages/utils" },
+    { "path": "./packages/server" },
+    { "path": "./packages/answer-utils" },
+    { "path": "./packages/form-renderer" },
+    { "path": "./packages/shared-types-enums" }
+  ]
+} 

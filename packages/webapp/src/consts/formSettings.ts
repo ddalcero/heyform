@@ -15,11 +15,15 @@ export const LOCALES_OPTIONS = [
     value: 'en'
   },
   {
+    label: 'Italiano',
+    value: 'it'
+  },
+  {
     label: 'Polski',
     value: 'pl'
   },
   {
-    label: 'Türkçe',
+    label: 'Türkçe',
     value: 'tr'
   },
   {
@@ -44,6 +48,10 @@ export const FORM_LOCALES_OPTIONS = [
   {
     label: 'French',
     value: 'fr'
+  },
+  {
+    label: 'Italian',
+    value: 'it'
   },
   {
     label: 'Polish',

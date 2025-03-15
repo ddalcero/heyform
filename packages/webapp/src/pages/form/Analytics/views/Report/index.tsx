@@ -1,7 +1,6 @@
 import { flattenFields, htmlUtils } from '@heyform-inc/answer-utils'
 import {
   CHOICES_FIELD_KINDS,
-  CUSTOM_COLUMN_CHOICE_KINDS,
   FieldKindEnum,
   QUESTION_FIELD_KINDS
 } from '@heyform-inc/shared-types-enums'
@@ -20,7 +19,7 @@ import { useParam } from '@/utils'
 import { FieldList } from './FieldList'
 import { ReportItem } from './ReportItem'
 
-const CHOICE_KINDS = [FieldKindEnum.YES_NO, ...CHOICES_FIELD_KINDS, ...CUSTOM_COLUMN_CHOICE_KINDS]
+const CHOICE_KINDS = [FieldKindEnum.YES_NO, ...CHOICES_FIELD_KINDS]
 
 const Report: FC = observer(() => {
   const { t } = useTranslation()

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 
 import { RedirectUriLink } from '@/components'
 import { Form, Input } from '@/components/ui'
-import { VERIFY_USER_EMAIL } from '@/consts'
+import { DISABLE_LOGIN_WITH_EMAIL, VERIFY_USER_EMAIL } from '@/consts'
 import { AuthService } from '@/service'
 import { useQueryURL, useRouter } from '@/utils'
 
@@ -30,78 +30,81 @@ const SignUp = () => {
         <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
           <ThirdPartyLogin
             headline={t('auth.signup.signWith')}
-            subHeadline={t('auth.signup.continueWith')}
+            subHeadline={!DISABLE_LOGIN_WITH_EMAIL ? t('auth.signup.continueWith') : ''}
           />
 
-          <div className="mt-6">
-            <Form.Custom
-              submitText={t('auth.signup.button')}
-              submitOptions={{
-                type: 'primary',
-                className: 'mt-3',
-                block: true
-              }}
-              request={handleFinish}
-            >
-              <Form.Item
-                name="name"
-                label={t('auth.signup.Name')}
-                rules={[{ required: true, message: t('auth.signup.nameCant') }]}
+          {!DISABLE_LOGIN_WITH_EMAIL && (
+            <div className="mt-6">
+              <Form.Custom
+                submitText={t('auth.signup.button')}
+                submitOptions={{
+                  type: 'primary',
+                  className: 'mt-3',
+                  block: true
+                }}
+                request={handleFinish}
               >
-                <Input />
-              </Form.Item>
+                <Form.Item
+                  name="name"
+                  label={t('auth.signup.Name')}
+                  rules={[{ required: true, message: t('auth.signup.nameCant') }]}
+                >
+                  <Input />
+                </Form.Item>
 
-              <Form.Item
-                name="email"
-                label={t('auth.signup.Email')}
-                rules={[{ type: 'email', required: true, message: t('auth.signup.invalidEmail') }]}
-              >
-                <Input type="email" />
-              </Form.Item>
+                <Form.Item
+                  name="email"
+                  label={t('auth.signup.Email')}
+                  rules={[
+                    { type: 'email', required: true, message: t('auth.signup.invalidEmail') }
+                  ]}
+                >
+                  <Input type="email" />
+                </Form.Item>
 
-              <Form.Item
-                name="password"
-                label={t('login.Password')}
-                rules={[
-                  {
-                    required: true,
-                    pattern:
-                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[!#$%&()*+\-,.\/\\:<=>?@\[\]^_{|}~0-9a-zA-Z]{8,}$/,
-                    message: t('auth.signup.PasswordViolation')
-                  }
-                ]}
-              >
-                <Input.Password />
-              </Form.Item>
+                <Form.Item
+                  name="password"
+                  label={t('login.Password')}
+                  rules={[
+                    {
+                      required: true,
+                      pattern:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[!#$%&()*+\-,.\/\\:<=>?@\[\]^_{|}~0-9a-zA-Z]{8,}$/,
+                      message: t('auth.signup.PasswordViolation')
+                    }
+                  ]}
+                >
+                  <Input.Password />
+                </Form.Item>
 
-              <div className="mt-6">
-                <p className="text-sm text-slate-500">
-                  {t('auth.signup.agreeTo')}{' '}
-                  <a
-                    href="https://docs.heyform.net/terms-conditions"
-                    className="font-medium text-slate-700 underline"
-                    target="_blank"
-                  >
-                    {t('auth.signup.terms')}
-                  </a>{' '}
-                  {t('auth.signup.and')}{' '}
-                  <a
-                    href="https://docs.heyform.net/privacy-policy"
-                    className="font-medium text-slate-700 underline"
-                    target="_blank"
-                  >
-                    {t('auth.signup.privacy')}
-                  </a>
-                  .
-                </p>
-              </div>
-            </Form.Custom>
-
-            <div className="mt-6 text-center text-blue-700 hover:text-blue-800 sm:text-sm">
-              <RedirectUriLink href="/login" className="inline-flex items-center">
-                {t('auth.forgotPassword.link')}
-              </RedirectUriLink>
+                <div className="mt-6">
+                  <p className="text-sm text-slate-500">
+                    {t('auth.signup.agreeTo')}{' '}
+                    <a
+                      href="https://docs.heyform.net/terms-conditions"
+                      className="font-medium text-slate-700 underline"
+                      target="_blank"
+                    >
+                      {t('auth.signup.terms')}
+                    </a>{' '}
+                    {t('auth.signup.and')}{' '}
+                    <a
+                      href="https://docs.heyform.net/privacy-policy"
+                      className="font-medium text-slate-700 underline"
+                      target="_blank"
+                    >
+                      {t('auth.signup.privacy')}
+                    </a>
+                    .
+                  </p>
+                </div>
+              </Form.Custom>
             </div>
+          )}
+          <div className="mt-6 text-center text-blue-700 hover:text-blue-800 sm:text-sm">
+            <RedirectUriLink href="/login" className="inline-flex items-center">
+              {t('auth.forgotPassword.link')}
+            </RedirectUriLink>
           </div>
         </div>
       </div>

@@ -33,6 +33,7 @@ declare global {
       googleRecaptchaKey: string
       disableLoginWithGoogle: boolean
       disableLoginWithApple: boolean
+      disableLoginWithEmail: boolean
       verifyUserEmail: boolean
       appDisableRegistration: boolean
       device: {

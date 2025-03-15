@@ -64,18 +64,19 @@ export const CHOICES_FIELD_KINDS = [
   FieldKindEnum.PICTURE_CHOICE
 ]
 
+export const CUSTOM_COLUMN_CHOICE_KINDS = [...CHOICES_FIELD_KINDS]
+
 export const FORM_FIELD_KINDS = [
   ...QUESTION_FIELD_KINDS,
   ...STATEMENT_FIELD_KINDS
 ]
 
 export const CHOICE_FIELD_KINDS = [
-  FieldKindEnum.YES_NO, 
-  ...CHOICES_FIELD_KINDS
+  FieldKindEnum.YES_NO, ...CHOICES_FIELD_KINDS
 ]
 
 export const RATING_FIELD_KINDS = [
-  FieldKindEnum.RATING, 
+  FieldKindEnum.RATING,
   FieldKindEnum.OPINION_SCALE
 ]
 
